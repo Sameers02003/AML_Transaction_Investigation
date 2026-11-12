@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TransactionEvent",
+  "type": "object",
+  "required": ["event_id", "source_account_ref", "destination_account_ref", "amount", "currency", "channel", "occurred_at"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 6, "maxLength": 64, "description": "Unique and immutable; duplicates are ignored"},
+    "source_account_ref": {"type": "string"},
+    "destination_account_ref": {"type": "string"},
+    "amount": {"type": "string", "pattern": "^[0-9]{1,16}(\\.[0-9]{1,2})?$", "description": "Decimal sent as a string, never a float"},
+    "currency": {"type": "string", "enum": ["INR"]},
+    "channel": {"type": "string", "maxLength": 20},
+    "occurred_at": {"type": "string", "format": "date-time", "description": "UTC, for example 2026-11-03T12:45:10Z"}
+  }
+}

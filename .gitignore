@@ -1,0 +1,9 @@
+.venv/
+node_modules/
+__pycache__/
+.env
+*.joblib
+.pytest_cache/
+dist/
+data/synthetic/*.csv
+backup*.sql
